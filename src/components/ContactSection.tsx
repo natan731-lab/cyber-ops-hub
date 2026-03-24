@@ -94,6 +94,10 @@ const ContactSection = () => {
                   href={ch.href}
                   target={ch.external ? "_blank" : undefined}
                   rel={ch.external ? "noopener noreferrer" : undefined}
+                  onClick={ch.isWhatsApp ? (e) => {
+                    e.preventDefault();
+                    window.open(ch.href, '_blank', 'noopener,noreferrer');
+                  } : undefined}
                   className={`group flex-1 flex items-center gap-3 rounded-md border border-border bg-card px-4 py-3.5 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_20px_hsl(142_71%_45%/0.15)] ${
                     ch.isWhatsApp ? "hover:bg-primary/10" : ""
                   }`}
