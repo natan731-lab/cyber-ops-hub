@@ -106,3 +106,8 @@
 .animate-terminal-flicker {
   animation: terminal-flicker 4s ease-in-out infinite;
 }
+
+@keyframes loading {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}

@@ -2,21 +2,31 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import IdentitySection from "@/components/IdentitySection";
 import CredentialsSection from "@/components/CredentialsSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import SkillsMatrixSection from "@/components/SkillsMatrixSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background animate-terminal-flicker">
+      {/* Scanlines overlay */}
+      <div
+        className="pointer-events-none fixed inset-0 z-40 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, hsl(142 71% 45%) 0px, transparent 1px, transparent 3px)",
+        }}
+      />
+
       <Header />
       <HeroSection />
       <IdentitySection />
+      <ProjectsSection />
       <CredentialsSection />
-
-      {/* Footer */}
-      <footer className="border-t border-border py-8 text-center">
-        <p className="text-xs text-muted-foreground">
-          <span className="text-primary">$</span> echo "© 2026 NATAN_CORREA_OS — All rights reserved"
-        </p>
-      </footer>
+      <SkillsMatrixSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 };

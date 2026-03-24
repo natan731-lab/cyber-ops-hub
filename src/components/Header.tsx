@@ -1,15 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-const navItems = ["Sobre", "Projetos", "Certificações", "GRC", "Contato"];
+const navItems = [
+  { label: "SOBRE", href: "#sobre" },
+  { label: "PROJETOS", href: "#projetos" },
+  { label: "CERTIFICAÇÕES", href: "#certificações" },
+  { label: "GRC", href: "#grc" },
+  { label: "CONTATO", href: "#contato" },
+];
+
+const fullTitle = "🛡️ NATAN_CORREA_OS";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [displayedTitle, setDisplayedTitle] = useState("");
+  const [typingDone, setTypingDone] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setDisplayedTitle(fullTitle.slice(0, i));
+      if (i >= fullTitle.length) {
+        clearInterval(interval);
+        setTypingDone(true);
+      }
+    }, 60);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        {/* Left: Mac dots + Title */}
+        {/* Left */}
         <div className="flex items-center gap-3">
           <div className="flex gap-1.5">
             <span className="h-3 w-3 rounded-full bg-destructive" />
@@ -17,36 +40,35 @@ const Header = () => {
             <span className="h-3 w-3 rounded-full bg-primary" />
           </div>
           <span className="text-sm font-bold tracking-wider text-primary text-glow">
-            🛡️ NATAN_CORREA_OS
+            {displayedTitle}
+            {!typingDone && <span className="animate-blink">▊</span>}
           </span>
         </div>
 
-        {/* Center: Nav (desktop) */}
-        <nav className="hidden md:flex items-center gap-6">
+        {/* Center Nav (desktop) */}
+        <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-primary"
+              key={item.label}
+              href={item.href}
+              className="group relative px-3 py-1 text-[11px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-primary"
             >
-              {item}
+              [{item.label}]
+              <span className="absolute bottom-0 left-3 right-3 h-px origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" />
             </a>
           ))}
         </nav>
 
-        {/* Right: Status */}
+        {/* Right */}
         <div className="flex items-center gap-3">
-          <span className="hidden sm:flex items-center gap-2 text-xs text-muted-foreground font-medium">
-            STATUS:{" "}
-            <span className="flex items-center gap-1 text-primary">
-              [<span className="inline-block h-2 w-2 rounded-full bg-primary animate-blink" />
-              LIVE]
+          <span className="hidden sm:flex items-center gap-2 text-[11px] text-muted-foreground">
+            SISTEMA OPERACIONAL:{" "}
+            <span className="flex items-center gap-1.5 text-primary font-semibold">
+              <span className="inline-block h-2 w-2 rounded-full bg-primary animate-blink" />
+              LIVE
             </span>
           </span>
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-primary"
-          >
+          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-primary">
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -57,12 +79,12 @@ const Header = () => {
         <nav className="md:hidden border-t border-border bg-background px-4 py-4 flex flex-col gap-3">
           {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               onClick={() => setMenuOpen(false)}
               className="text-xs uppercase tracking-widest text-muted-foreground hover:text-primary"
             >
-              {">"} {item}
+              {">"} [{item.label}]
             </a>
           ))}
         </nav>
