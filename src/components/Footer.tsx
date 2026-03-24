@@ -52,7 +52,7 @@ const Footer = () => {
 
         {/* Vulnerability Report */}
         <a
-          href="mailto:natan.correa.sec@gmail.com?subject=[VULNERABILITY_REPORT]: Portfólio v3.0"
+          href="mailto:natandias735@gmail.com?subject=[VULNERABILITY_REPORT]: Portfólio v3.0"
           className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-widest text-muted-foreground/40 hover:text-primary transition-colors mb-6"
         >
           Encontrou um bug? [REPORTAR_VULNERABILIDADE]
