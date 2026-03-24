@@ -1,6 +1,6 @@
 # 🛡️ Natan Dias Corrêa | Cybersecurity & GRC Portfolio
 
-> **NATAN_CORREA_OS v3.0** — Portfólio Profissional de Segurança da Informação
+> **NATAN_DIAS_CORREA_OS v3.0** — Portfólio Profissional de Segurança da Informação
 
 ## 🎯 Sobre
 
@@ -61,7 +61,8 @@ Digite **GRC** em qualquer lugar do site para ativar o **Modo Matrix** — uma v
 ## 📬 Contato
 
 - LinkedIn: [Natan Dias Corrêa](https://www.linkedin.com/in/natan-dias-corr%C3%AAa-04a724228/)
-- GitHub: [natan731-lab](https://github.com/natan731-lab)
+- GitHub: [natan731-lab](https://natan731-lab.github.io)
+- Gmail: [natandias735@gmail.com]
 - Utilizei o Lovable como meu motor de prototipagem rápida para garantir um deploy seguro e focado em Privacy by Design, priorizando a lógica de segurança em vez de perder tempo com código boilerplate." Isso transforma uma "IA" em uma "decisão estratégica de engenharia.
 ---
 
