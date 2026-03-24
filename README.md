@@ -52,7 +52,7 @@ Hospedado via **GitHub Pages** em ambiente resiliente.
 npm run build
 ```
 
-Base URL: `https://natan731-lab.github.io/natan731.github.io/`
+Base URL: `https://natan731-lab.github.io/`
 
 ## 🥚 Easter Egg
 
